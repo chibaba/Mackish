@@ -22,11 +22,11 @@ export const ShopConnector = connect(mapStateToProps, mapDispatchToProps)(
     class extends Component {
         render() {
             return <Switch>
-                <Route path="/Shop/products/:category ?"
+                <Route path="/shop/products/:category?"
                 render={ (routeProps) =>
                 <Shop {...this.props} {...routeProps} 
                products={filterProducts(this.props.products,
-                routeProps.match.params.category)} />} />
+                routeProps.match.params.category) } />} />
                 <Redirect to="/shop/products" />
             </Switch>
         }

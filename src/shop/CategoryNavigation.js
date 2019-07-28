@@ -11,7 +11,7 @@ export class CategoryNavigation extends Component {
                 to={ `${this.props.baseUrl}/${cat.toLowerCase()}`}>
                     { cat }
                 </Link>
-                )}
+                        )}
 
         </React.Fragment>
     }
