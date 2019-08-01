@@ -1,6 +1,6 @@
 import { ActionTypes } from "./Types";
 
-export const CartReducer = (storeReducer, action) => {
+export const CartReducer = (storeData, action) => {
     let newStore = { cart: [], cartItems: 0, cartPrice: 0, ...storeData }
     switch(action.type) {
         case ActionTypes.CART_ADD:
@@ -32,10 +32,10 @@ export const CartReducer = (storeReducer, action) => {
               
          case ActionTypes.CART_REMOVE:
              let selection = newStore.cart.find(item => 
-                item.product.id === actio.payload.id);
+                item.product.id === action.payload.id);
                 newStore.cartItem -= selection.quantity;
                 newStore.cartPrice -= selection.quantity * selection.product.price;
-                newStore.cart = newStore.cart.filter(item => item != selection )
+                newStore.cart = newStore.cart.filter(item => item !== selection )
                 return newStore;
 
         case ActionTypes.CART_CLEAR:
